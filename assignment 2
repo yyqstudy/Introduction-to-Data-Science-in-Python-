@@ -68,11 +68,11 @@ Only looking at the three most populous counties for each state, what are the th
 This function should return a list of string values.
 
 def answer_six():
-    thr = census_df.groupby('STNAME')['CENSUS2010POP'].apply(lambda x: x.nlargest(3).sum()).nlargest(3).index.values.tolist()
+    thr = census_df[census_df['SUMLEV'] == 50].groupby('STNAME')['CENSUS2010POP'].apply(lambda x: x.nlargest(3).sum()).nlargest(3).index.values.tolist()
     return thr
 answer_six()
 
-#['California', 'Texas', 'New York']
+#['California', 'Texas', 'Illinois']
 
 
 Question 7
